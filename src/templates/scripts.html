@@ -1,0 +1,8 @@
+{% load static %}
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% if debug %}
+<script src="{% static 'vue/vue.js'%}"></script>
+{% else %}
+<script src="{% static 'vue/vue.min.js'%}"></script>
+{% endif %}

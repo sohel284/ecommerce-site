@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title_block  %} E-com | Rana  {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {% block css_block %}
+    {% endblock%}
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-3">
+        <div class="messages mt-2">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert alert-{{message.tags}} {% endif %}" role="alert" >
+                {{message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"> &times;
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% block body_block %}
+        {% endblock  %}
+    </div>
+    
+    {% include 'scripts.html' %}
+</body>
+</html>
